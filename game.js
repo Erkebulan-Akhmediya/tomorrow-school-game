@@ -81,6 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (document.hidden) pause();
     });
 
+    window.addEventListener('blur', () => {
+      pause();
+    })
+
     requestAnimationFrame(loop);
   }
 
