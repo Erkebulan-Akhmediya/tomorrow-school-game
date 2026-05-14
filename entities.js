@@ -1,6 +1,6 @@
 // =============================================================
 //  entities.js — Game Entity Classes
-//  Depends on globals: CONFIG, LOADED_ASSETS, inputState
+//  Depends on globals: CONFIG, INTERNAL_CONFIG, LOADED_ASSETS, inputState
 //  Exposes globals:    Player, Enemy, Bullet
 // =============================================================
 
@@ -9,8 +9,8 @@
 // =============================================================
 class Player {
   constructor(canvasWidth, canvasHeight) {
-    this.width = CONFIG.player.size;
-    this.height = CONFIG.player.size;
+    this.width = INTERNAL_CONFIG.player.size;
+    this.height = INTERNAL_CONFIG.player.size;
 
     // Start at the centre of the canvas.
     this.x = canvasWidth / 2;
@@ -70,7 +70,7 @@ class Player {
       const ey = enemy.y;
       const dist = Math.hypot(ex - cx, ey - cy);
 
-      if (dist <= CONFIG.enemy.detectionRange && dist < closestDist) {
+      if (dist <= INTERNAL_CONFIG.enemy.detectionRange && dist < closestDist) {
         closestDist = dist;
         closestEnemy = enemy;
       }
@@ -102,8 +102,8 @@ class Enemy {
     this.x = x;
     this.y = y;
 
-    this.width = CONFIG.enemy.size;
-    this.height = CONFIG.enemy.size;
+    this.width = INTERNAL_CONFIG.enemy.size;
+    this.height = INTERNAL_CONFIG.enemy.size;
 
     this.speed = CONFIG.enemy.speed;
     this.image = LOADED_ASSETS["enemy"];
@@ -168,7 +168,7 @@ class Bullet {
       case "triangle": {
         // Equilateral triangle: AABB width = h = s*√3/2, AABB height = s.
         const s = p.side ?? 20;
-        this.width  = s * Math.sqrt(3) / 2;
+        this.width = s * Math.sqrt(3) / 2;
         this.height = s;
         break;
       }

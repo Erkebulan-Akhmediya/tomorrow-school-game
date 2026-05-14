@@ -35,10 +35,6 @@ const CONFIG = {
     // is within detectionRange.
     // Suggested: 1.5
     shootFrequency: 1.5,
-
-    // Display size of the player sprite in pixels (width & height).
-    // Suggested: 64
-    size: 64,
   },
 
   // ==========================================================
@@ -61,15 +57,6 @@ const CONFIG = {
     // Time in seconds between each spawn event.
     // Suggested: 3
     spawnInterval: 5,
-
-    // Maximum pixel distance at which the player will auto-shoot
-    // at a nearby enemy.
-    // Suggested: 400
-    detectionRange: 400,
-
-    // Display size of each enemy sprite in pixels (width & height).
-    // Suggested: 48
-    size: 48,
   },
 
   // ==========================================================

@@ -9,7 +9,7 @@
 // =============================================================
 class Spawner {
   constructor(canvasWidth, canvasHeight) {
-    this.canvasWidth  = canvasWidth;
+    this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
 
     // Counts up each frame; a wave fires when it reaches spawnInterval.
@@ -48,7 +48,7 @@ class Spawner {
   //  Edges:  0 = top  |  1 = bottom  |  2 = left  |  3 = right
   // ----------------------------------------------------------------
   spawnOne(enemies) {
-    const size   = CONFIG.enemy.size;   // enemy sprite size in px
+    const size = INTERNAL_CONFIG.enemy.size;   // enemy sprite size in px
     const offset = size;                // how far off-screen to start
 
     const edge = Math.floor(Math.random() * 4);
