@@ -40,6 +40,21 @@ body {
   margin: 0;
 }
 
+#titleContainer {
+  height: 60px;
+  width: 400px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: burlywood;
+  border-width: 10px;
+  border-color: brown;
+  border-style: solid;
+  padding: 10px 20px;
+}
+
 /* =========================================
    Pause Overlay
    ========================================= */
@@ -47,7 +62,8 @@ body {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
-  display: none; /* hidden by default */
+  display: none;
+  /* hidden by default */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -73,4 +89,18 @@ body {
 
 #overlay button:hover {
   background: #ddd;
+}
+
+/* =========================================
+   Logos
+   ========================================= */
+#logos {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  height: 150px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
