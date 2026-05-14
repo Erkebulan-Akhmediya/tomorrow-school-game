@@ -88,7 +88,7 @@ const CONFIG = {
     // Shape used to draw the bullet.
     // Valid values: "circle" | "square" | "triangle" | "star"
     // The matching shape-options block below will be used.
-    shape: "square",
+    shape: "triangle",
 
     // -- Shape options ------------------------------------------
     // Only the block whose name matches `shape` above is used;

@@ -40,8 +40,8 @@ function drawBullet(ctx, bullet) {
     //  Square — centred on origin after rotation.
     // ----------------------------------------------------------
     case "square": {
-      const sl = bullet.shapeParams.sizeLength ?? 10;
-      ctx.fillRect(-sl / 2, -sl / 2, sl, sl);
+      const side = bullet.shapeParams.side ?? 10;
+      ctx.fillRect(-side / 2, -side / 2, side, side);
       break;
     }
 
