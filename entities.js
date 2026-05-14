@@ -165,10 +165,13 @@ class Bullet {
         this.width = p.width ?? 10;
         this.height = p.height ?? 10;
         break;
-      case "triangle":
-        this.width = p.height ?? 14; // height is the long axis (tip→base)
-        this.height = p.base ?? 12;
+      case "triangle": {
+        // Equilateral triangle: AABB width = h = s*√3/2, AABB height = s.
+        const s = p.side ?? 20;
+        this.width  = s * Math.sqrt(3) / 2;
+        this.height = s;
         break;
+      }
       case "star":
         this.width = (p.outerRadius ?? 10) * 2;
         this.height = (p.outerRadius ?? 10) * 2;

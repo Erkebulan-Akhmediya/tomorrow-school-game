@@ -83,7 +83,7 @@ const CONFIG = {
 
     // Fill colour of the bullet. Any valid CSS colour string.
     // Examples: "#ff4444"  |  "red"  |  "rgb(255,68,68)"
-    color: "blue",
+    color: "yellow",
 
     // Shape used to draw the bullet.
     // Valid values: "circle" | "square" | "triangle" | "star"
@@ -104,10 +104,10 @@ const CONFIG = {
       side: 20
     },
 
-    // Triangular bullet — defined by base width and height in pixels.
+    // Equilateral triangle bullet — all sides equal, all angles 60°.
+    // Defined by a single side length in pixels.
     triangle: {
-      base: 12,
-      height: 14,
+      side: 40,
     },
 
     // Star-shaped bullet.

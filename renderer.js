@@ -46,25 +46,33 @@ function drawBullet(ctx, bullet) {
     }
 
     // ----------------------------------------------------------
-    //  Triangle — tip points forward (+x after rotation),
-    //  base sits at the rear (-x).
+    //  Triangle — equilateral, tip points forward (+x after rotation).
+    //  All sides equal, all angles 60°.
+    //  Centroid is used as the draw origin (bullet.x / bullet.y).
+    //
+    //  For side length s:
+    //    h  = s * √3/2          (full height of the triangle)
+    //    Centroid → tip  = 2h/3 (forward)
+    //    Centroid → base = h/3  (backward)
     //
     //        tip (front)
-    //         *
-    //        / \
-    //       /   \
-    //      *-----*
-    //    base-left  base-right
+    //          *
+    //         / \
+    //        /   \
+    //       *-----*
+    //  base-left  base-right
     // ----------------------------------------------------------
     case "triangle": {
-      const base = bullet.shapeParams.base ?? 12;
-      const height = bullet.shapeParams.height ?? 14;
-      const halfB = base / 2;
+      const s  = bullet.shapeParams.side ?? 20;
+      const h  = s * Math.sqrt(3) / 2; // full triangle height
+      const f  = (2 / 3) * h;          // centroid → tip   (forward)
+      const b  = (1 / 3) * h;          // centroid → base  (backward)
+      const hw = s / 2;                 // half base width
 
       ctx.beginPath();
-      ctx.moveTo(height / 2, 0);      // tip   (front)
-      ctx.lineTo(-height / 2, halfB);    // base left
-      ctx.lineTo(-height / 2, -halfB);    // base right
+      ctx.moveTo( f,   0);   // tip   (front)
+      ctx.lineTo(-b,  hw);   // base left
+      ctx.lineTo(-b, -hw);   // base right
       ctx.closePath();
       ctx.fill();
       break;
