@@ -101,7 +101,7 @@ const CONFIG = {
 
     // Square bullet — defined by its width and height in pixels.
     square: {
-      sizeLength: 20
+      side: 20
     },
 
     // Triangular bullet — defined by base width and height in pixels.
