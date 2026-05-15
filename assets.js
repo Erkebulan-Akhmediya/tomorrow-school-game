@@ -12,16 +12,19 @@
 // ------------------------------------------------------------------
 const ASSET_REGISTRY = {
   backgrounds: {
-    grass: "assets/backgrounds/grass.png",
     cowboy_road: "assets/backgrounds/cowboy_road.png",
   },
   characters: {
-    knight: "assets/characters/knight.gif",
-    cowboy: "assets/characters/cowboy1.png",
+    cowboy: [
+      "assets/characters/cowboy/1.png",
+      "assets/characters/cowboy/2.png"
+    ],
   },
   enemies: {
-    slime: "assets/enemies/slime.gif",
-    cowboy: "assets/enemies/cowboy1.png",
+    cowboy: [
+      "assets/enemies/cowboy/1.png",
+      "assets/enemies/cowboy/2.png"
+    ],
   },
 };
 
@@ -98,15 +101,19 @@ async function loadAssets() {
   const playerPath = _resolveAssetPath("characters", CONFIG.player.asset);
   const enemyPath = _resolveAssetPath("enemies", CONFIG.enemy.asset);
 
-  // Load all three images concurrently.
-  const [backgroundImg, playerImg, enemyImg] = await Promise.all([
+  // If playerPath is an array, load all frames. Otherwise, load the single image and wrap it in an array.
+  const playerPaths = Array.isArray(playerPath) ? playerPath : [playerPath];
+  const enemyPaths = Array.isArray(enemyPath) ? enemyPath : [enemyPath];
+
+  // Load all images concurrently.
+  const [backgroundImg, playerImgs, enemyImgs] = await Promise.all([
     _loadImage(backgroundPath),
-    _loadImage(playerPath),
-    _loadImage(enemyPath),
+    Promise.all(playerPaths.map(p => _loadImage(p))),
+    Promise.all(enemyPaths.map(p => _loadImage(p))),
   ]);
 
   // Store decoded images for the renderer to use.
   LOADED_ASSETS["background"] = backgroundImg;
-  LOADED_ASSETS["player"] = playerImg;
-  LOADED_ASSETS["enemy"] = enemyImg;
+  LOADED_ASSETS["player"] = playerImgs;
+  LOADED_ASSETS["enemy"] = enemyImgs;
 }

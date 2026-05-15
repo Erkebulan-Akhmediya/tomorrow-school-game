@@ -17,7 +17,11 @@ class Player {
     this.y = canvasHeight / 2;
 
     this.speed = CONFIG.player.speed;
-    this.image = LOADED_ASSETS["player"];
+    this.images = LOADED_ASSETS["player"]; // Array of frames
+
+    // Animation state
+    this.animationTimer = 0;
+    this.currentFrame = 0;
 
     // Counts up each frame; a shot fires when it reaches the shoot interval.
     this.shootTimer = 0;
@@ -41,6 +45,13 @@ class Player {
     const halfH = this.height / 2;
     this.x = Math.max(halfW, Math.min(canvasWidth - halfW, this.x));
     this.y = Math.max(halfH, Math.min(canvasHeight - halfH, this.y));
+
+    // Handle walking animation
+    this.animationTimer += dt;
+    if (this.animationTimer >= INTERNAL_CONFIG.player.animationFrameDuration) {
+      this.animationTimer = 0;
+      this.currentFrame = (this.currentFrame + 1) % this.images.length;
+    }
 
     // Advance the shoot cooldown timer.
     this.shootTimer += dt;
@@ -90,7 +101,8 @@ class Player {
   draw(ctx) {
     const hw = this.width / 2;
     const hh = this.height / 2;
-    ctx.drawImage(this.image, this.x - hw, this.y - hh, this.width, this.height);
+    // Draw the current animation frame
+    ctx.drawImage(this.images[this.currentFrame], this.x - hw, this.y - hh, this.width, this.height);
   }
 }
 
@@ -106,7 +118,11 @@ class Enemy {
     this.height = INTERNAL_CONFIG.enemy.size;
 
     this.speed = CONFIG.enemy.speed;
-    this.image = LOADED_ASSETS["enemy"];
+    this.images = LOADED_ASSETS["enemy"]; // Array of frames
+
+    // Animation state
+    this.animationTimer = 0;
+    this.currentFrame = 0;
 
     this.isAlive = true;
   }
@@ -119,6 +135,13 @@ class Enemy {
     const angle = Math.atan2(playerY - this.y, playerX - this.x);
     this.x += Math.cos(angle) * this.speed * dt;
     this.y += Math.sin(angle) * this.speed * dt;
+
+    // Handle walking animation
+    this.animationTimer += dt;
+    if (this.animationTimer >= INTERNAL_CONFIG.enemy.animationFrameDuration) {
+      this.animationTimer = 0;
+      this.currentFrame = (this.currentFrame + 1) % this.images.length;
+    }
   }
 
   // ----------------------------------------------------------------
@@ -127,7 +150,7 @@ class Enemy {
   draw(ctx) {
     const hw = this.width / 2;
     const hh = this.height / 2;
-    ctx.drawImage(this.image, this.x - hw, this.y - hh, this.width, this.height);
+    ctx.drawImage(this.images[this.currentFrame], this.x - hw, this.y - hh, this.width, this.height);
   }
 }
 

@@ -10,6 +10,9 @@ const INTERNAL_CONFIG = {
   player: {
     // Display size of the player sprite in pixels (width & height).
     size: 64,
+
+    // Time in seconds to display each frame of the walking animation.
+    animationFrameDuration: 0.2,
   },
 
   enemy: {
@@ -19,6 +22,9 @@ const INTERNAL_CONFIG = {
     // Maximum pixel distance at which the player will auto-shoot
     // at a nearby enemy.
     detectionRange: 400,
+
+    // Time in seconds to display each frame of the walking animation.
+    animationFrameDuration: 0.2,
   },
 
 };
