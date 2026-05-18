@@ -27,6 +27,9 @@ const INTERNAL_CONFIG = {
     animationFrameDuration: 0.2,
   },
 
+  // Endpoint to handle share screenshot requests
+  shareEndpoint: "http://localhost:3000/share",
+
   // Fixed canvas dimensions to prevent background stretching.
   canvasWidth: 1000,
 

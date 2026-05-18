@@ -22,7 +22,17 @@
     <h2>Paused</h2>
     <button id="btnContinue">Continue</button>
     <button id="btnReload">Reload</button>
+    <button id="btnShare">Share</button>
   </div>
+
+  <dialog id="shareDialog">
+    <form id="shareForm">
+      <h3>Share Screenshot</h3>
+      <input type="text" id="telegramUsername" placeholder="Telegram Username" required />
+      <button type="submit" id="btnSendShare">Send</button>
+      <button type="button" id="btnCancelShare">Cancel</button>
+    </form>
+  </dialog>
 
   <script src="config.js"></script>
   <script src="internal_conf.js"></script>

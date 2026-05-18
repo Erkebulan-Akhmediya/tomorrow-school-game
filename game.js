@@ -14,7 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlayH2 = overlay.querySelector("h2");
   const btnContinue = document.getElementById("btnContinue");
   const btnReload = document.getElementById("btnReload");
+  const btnShare = document.getElementById("btnShare");
   const gameTitle = document.getElementById("gameTitle");
+  
+  const shareDialog = document.getElementById("shareDialog");
+  const shareForm = document.getElementById("shareForm");
+  const telegramUsernameInput = document.getElementById("telegramUsername");
+  const btnCancelShare = document.getElementById("btnCancelShare");
+
+  let shareScreenshotData = "";
 
   // ── Canvas Size ───────────────────────────────────────────────────
   canvas.width = INTERNAL_CONFIG.canvasWidth;
@@ -49,6 +57,43 @@ document.addEventListener("DOMContentLoaded", () => {
   // how many times init() might be called in the future.
   btnContinue.addEventListener("click", resume);
   btnReload.addEventListener("click", () => location.reload());
+
+  btnShare.addEventListener("click", () => {
+    overlay.style.display = "none";
+    shareScreenshotData = canvas.toDataURL("image/png");
+    shareDialog.showModal();
+  });
+
+  btnCancelShare.addEventListener("click", () => {
+    shareDialog.close();
+    if (paused) {
+      overlay.style.display = "flex";
+    }
+  });
+
+  shareForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = telegramUsernameInput.value;
+    
+    fetch(INTERNAL_CONFIG.shareEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, image: shareScreenshotData })
+    })
+    .then(res => {
+      if (res.ok) {
+        shareDialog.close();
+        alert("successfully shared the screenshot");
+        if (paused) overlay.style.display = "flex";
+      } else {
+        alert("Failed to share.");
+      }
+    })
+    .catch(err => {
+      console.error("Error sharing:", err);
+      alert("Error sharing screenshot.");
+    });
+  });
 
   // ── Load assets then start ────────────────────────────────────────
   loadAssets().then(() => {
