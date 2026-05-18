@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnReload = document.getElementById("btnReload");
   const btnShare = document.getElementById("btnShare");
   const gameTitle = document.getElementById("gameTitle");
-  
+
   const shareDialog = document.getElementById("shareDialog");
   const shareForm = document.getElementById("shareForm");
   const telegramUsernameInput = document.getElementById("telegramUsername");
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   shareForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const username = telegramUsernameInput.value;
-    
+
     // Convert base64 dataUrl to a blob so it can be sent as a file
     fetch(shareScreenshotData)
       .then(res => res.blob())
