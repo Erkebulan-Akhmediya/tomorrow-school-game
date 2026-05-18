@@ -75,24 +75,32 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const username = telegramUsernameInput.value;
     
-    fetch(INTERNAL_CONFIG.shareEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, image: shareScreenshotData })
-    })
-    .then(res => {
-      if (res.ok) {
-        shareDialog.close();
-        alert("successfully shared the screenshot");
-        if (paused) overlay.style.display = "flex";
-      } else {
-        alert("Failed to share.");
-      }
-    })
-    .catch(err => {
-      console.error("Error sharing:", err);
-      alert("Error sharing screenshot.");
-    });
+    // Convert base64 dataUrl to a blob so it can be sent as a file
+    fetch(shareScreenshotData)
+      .then(res => res.blob())
+      .then(blob => {
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("photo", blob, "screenshot.png");
+
+        return fetch(INTERNAL_CONFIG.shareEndpoint, {
+          method: "POST",
+          body: formData
+        });
+      })
+      .then(res => {
+        if (res.ok) {
+          shareDialog.close();
+          alert("successfully shared the screenshot");
+          if (paused) overlay.style.display = "flex";
+        } else {
+          alert("Failed to share.");
+        }
+      })
+      .catch(err => {
+        console.error("Error sharing:", err);
+        alert("Error sharing screenshot.");
+      });
   });
 
   // ── Load assets then start ────────────────────────────────────────
