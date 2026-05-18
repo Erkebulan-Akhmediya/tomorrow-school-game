@@ -27,4 +27,7 @@ const INTERNAL_CONFIG = {
     animationFrameDuration: 0.2,
   },
 
+  // Fixed canvas dimensions to prevent background stretching.
+  canvasWidth: 1000,
+
 };

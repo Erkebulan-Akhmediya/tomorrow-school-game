@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameTitle = document.getElementById("gameTitle");
 
   // ── Canvas Size ───────────────────────────────────────────────────
-  canvas.width = window.innerWidth;
+  canvas.width = INTERNAL_CONFIG.canvasWidth;
   canvas.height = window.innerHeight;
 
   // ── Title ─────────────────────────────────────────────────────────
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Keeps the canvas filling the window and clamps the player to the
   // new bounds so it is never trapped outside the visible area.
   window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
+    canvas.width = INTERNAL_CONFIG.canvasWidth;
     canvas.height = window.innerHeight;
 
     if (player) {
