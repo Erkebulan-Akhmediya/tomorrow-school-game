@@ -10,7 +10,9 @@ const CONFIG = {
   // Title displayed at the top of the screen.
   // Change this to whatever you like.
   // ----------------------------------------------------------
-  title: "Educational Game 23",
+  title1: "Здесь может",
+  title2: "быть заголовок",
+  title3: "вашей игры",
 
   // ----------------------------------------------------------
   // Background scene.

@@ -232,13 +232,17 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
 
-    const textWidth = ctx.measureText(CONFIG.title).width;
+    const textWidth = Math.max(
+      ctx.measureText(CONFIG.title1).width,
+      ctx.measureText(CONFIG.title2).width,
+      ctx.measureText(CONFIG.title3).width
+    );
     const paddingX = 20;
     const paddingY = 10;
     const rectX = canvas.width / 2 - textWidth / 2 - paddingX;
     const rectY = 20 - paddingY;
     const rectW = textWidth + paddingX * 2;
-    const rectH = 36 + paddingY * 2; // Approximate height for 36px text
+    const rectH = 40 * 3 + paddingY * 2; // Approximate height for 36px text
 
     // Draw white background
     ctx.fillStyle = "white";
@@ -251,7 +255,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Draw text
     ctx.fillStyle = "#0006f7";
-    ctx.fillText(CONFIG.title, canvas.width / 2, 20);
+    ctx.fillText(CONFIG.title1, canvas.width / 2, 20);
+    ctx.fillText(CONFIG.title2, canvas.width / 2, 60);
+    ctx.fillText(CONFIG.title3, canvas.width / 2, 100);
   }
 
   // =================================================================
