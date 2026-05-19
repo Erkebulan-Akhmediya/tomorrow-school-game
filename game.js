@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnContinue = document.getElementById("btnContinue");
   const btnReload = document.getElementById("btnReload");
   const btnShare = document.getElementById("btnShare");
-  const gameTitle = document.getElementById("gameTitle");
 
   const shareDialog = document.getElementById("shareDialog");
   const shareForm = document.getElementById("shareForm");
@@ -27,9 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Canvas Size ───────────────────────────────────────────────────
   canvas.width = INTERNAL_CONFIG.canvasWidth;
   canvas.height = window.innerHeight;
-
-  // ── Title ─────────────────────────────────────────────────────────
-  gameTitle.textContent = CONFIG.title;
 
   // ── Startup log ───────────────────────────────────────────────────
   console.log(
@@ -228,6 +224,32 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const bullet of bullets) {
       bullet.draw(ctx);
     }
+
+    // 6. Draw the title
+    ctx.font = "bold 36px Montserrat";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+
+    const textWidth = ctx.measureText(CONFIG.title).width;
+    const paddingX = 20;
+    const paddingY = 10;
+    const rectX = canvas.width / 2 - textWidth / 2 - paddingX;
+    const rectY = 20 - paddingY;
+    const rectW = textWidth + paddingX * 2;
+    const rectH = 36 + paddingY * 2; // Approximate height for 36px text
+
+    // Draw white background
+    ctx.fillStyle = "white";
+    ctx.fillRect(rectX, rectY, rectW, rectH);
+
+    // Draw blue border
+    ctx.strokeStyle = "#0006f7";
+    ctx.lineWidth = 4;
+    ctx.strokeRect(rectX, rectY, rectW, rectH);
+
+    // Draw text
+    ctx.fillStyle = "#0006f7";
+    ctx.fillText(CONFIG.title, canvas.width / 2, 20);
   }
 
   // =================================================================
