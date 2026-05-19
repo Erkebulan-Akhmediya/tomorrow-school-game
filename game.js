@@ -254,10 +254,28 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.strokeRect(rectX, rectY, rectW, rectH);
 
     // Draw text
-    ctx.fillStyle = "#0006f7";
+    ctx.fillStyle = "#0229b4";
     ctx.fillText(CONFIG.title1, canvas.width / 2, 20);
     ctx.fillText(CONFIG.title2, canvas.width / 2, 60);
     ctx.fillText(CONFIG.title3, canvas.width / 2, 100);
+
+    // Draw footer
+    const footerHeight = 100;
+    const footerY = canvas.height - footerHeight;
+    ctx.fillRect(0, footerY, canvas.width, footerHeight);
+
+    const initialImgWidth = 715;
+    const initialImgHeight = 250;
+    const imgScale = 0.2;
+    const imgWidth = initialImgWidth * imgScale;
+    const imgHeight = initialImgHeight * imgScale;
+    let leftPadding = 0.20;
+    for (let i = 0; i < 4; i++) {
+      const imgX = canvas.width * leftPadding;
+      const imgY = footerY + (footerHeight / 2);
+      ctx.drawImage(LOADED_ASSETS["logos"][i], imgX - (imgWidth / 2), imgY - (imgHeight / 2), imgWidth, imgHeight);
+      leftPadding += 0.20;
+    }
   }
 
   // =================================================================

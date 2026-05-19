@@ -63,6 +63,12 @@ const ASSET_REGISTRY = {
       "assets/enemies/zombie-2.png",
     ]
   },
+  logos: [
+    "assets/logos/logo 1.png",
+    "assets/logos/logo 2.png",
+    "assets/logos/logo 3.png",
+    "assets/logos/logo 4.png",
+  ]
 };
 
 // ------------------------------------------------------------------
@@ -141,16 +147,19 @@ async function loadAssets() {
   // If playerPath is an array, load all frames. Otherwise, load the single image and wrap it in an array.
   const playerPaths = Array.isArray(playerPath) ? playerPath : [playerPath];
   const enemyPaths = Array.isArray(enemyPath) ? enemyPath : [enemyPath];
+  const logoPaths = ASSET_REGISTRY["logos"];
 
   // Load all images concurrently.
-  const [backgroundImg, playerImgs, enemyImgs] = await Promise.all([
+  const [backgroundImg, playerImgs, enemyImgs, logoImgs] = await Promise.all([
     _loadImage(backgroundPath),
     Promise.all(playerPaths.map(p => _loadImage(p))),
     Promise.all(enemyPaths.map(p => _loadImage(p))),
+    Promise.all(logoPaths.map(p => _loadImage(p))),
   ]);
 
   // Store decoded images for the renderer to use.
   LOADED_ASSETS["background"] = backgroundImg;
   LOADED_ASSETS["player"] = playerImgs;
   LOADED_ASSETS["enemy"] = enemyImgs;
+  LOADED_ASSETS["logos"] = logoImgs;
 }
