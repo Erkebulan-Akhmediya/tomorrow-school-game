@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnContinue = document.getElementById("btnContinue");
   const btnReload = document.getElementById("btnReload");
   const btnShare = document.getElementById("btnShare");
+  const btnPause = document.getElementById("btnPause");
 
   const shareDialog = document.getElementById("shareDialog");
   const shareForm = document.getElementById("shareForm");
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Registered here so they are attached exactly once regardless of
   // how many times init() might be called in the future.
   btnContinue.addEventListener("click", resume);
+  btnPause.addEventListener("click", pause);
   btnReload.addEventListener("click", () => location.reload());
 
   btnShare.addEventListener("click", () => {
