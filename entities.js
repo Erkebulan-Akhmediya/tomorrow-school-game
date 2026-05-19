@@ -35,7 +35,7 @@ class Player {
   // ----------------------------------------------------------------
   update(dt, inputState, canvasWidth, canvasHeight) {
     // Apply movement.
-    if (inputState.up) this.y -= this.speed * dt;
+    if (inputState.up && this.y > canvasHeight * 0.15) this.y -= this.speed * dt;
     if (inputState.down) this.y += this.speed * dt;
     if (inputState.left) this.x -= this.speed * dt;
     if (inputState.right) this.x += this.speed * dt;

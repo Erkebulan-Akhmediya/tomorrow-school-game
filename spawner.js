@@ -51,7 +51,7 @@ class Spawner {
     const size = INTERNAL_CONFIG.enemy.size;   // enemy sprite size in px
     const offset = size;                // how far off-screen to start
 
-    const edge = Math.floor(Math.random() * 4);
+    const edge = Math.floor(Math.random() * 3) + 1;
     let x, y;
 
     switch (edge) {
@@ -67,12 +67,12 @@ class Spawner {
 
       case 2: // left — enemy enters from the left
         x = -offset;
-        y = Math.random() * this.canvasHeight;
+        y = Math.random() * this.canvasHeight * 0.8 + this.canvasHeight * 0.2;
         break;
 
       case 3: // right — enemy enters from the right
         x = this.canvasWidth + offset;
-        y = Math.random() * this.canvasHeight;
+        y = Math.random() * this.canvasHeight * 0.8 + this.canvasHeight * 0.2;
         break;
     }
 
