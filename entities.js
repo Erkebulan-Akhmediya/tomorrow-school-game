@@ -9,7 +9,7 @@
 // =============================================================
 class Player {
   constructor(canvasWidth, canvasHeight) {
-    this.width = INTERNAL_CONFIG.player.size;
+    this.width = INTERNAL_CONFIG.player.size * 0.5;
     this.height = INTERNAL_CONFIG.player.size;
 
     // Start at the centre of the canvas.
@@ -114,7 +114,7 @@ class Enemy {
     this.x = x;
     this.y = y;
 
-    this.width = INTERNAL_CONFIG.enemy.size;
+    this.width = INTERNAL_CONFIG.enemy.size * 0.5;
     this.height = INTERNAL_CONFIG.enemy.size;
 
     this.speed = CONFIG.enemy.speed;

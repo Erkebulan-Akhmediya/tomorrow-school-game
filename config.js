@@ -10,13 +10,13 @@ const CONFIG = {
   // Title displayed at the top of the screen.
   // Change this to whatever you like.
   // ----------------------------------------------------------
-  title: "Educational Game",
+  title: "Educational Game 23",
 
   // ----------------------------------------------------------
   // Background scene.
   // Valid values: "grass"
   // ----------------------------------------------------------
-  background: "cowboy_road",
+  background: "meadow",
 
   // ==========================================================
   //  PLAYER
@@ -25,7 +25,7 @@ const CONFIG = {
 
     // Asset name that represents the player character.
     // Valid values: "knight"
-    asset: "cowboy",
+    asset: "soldier",
 
     // Movement speed in pixels per second.
     // Higher = faster player. Suggested: 200
@@ -44,7 +44,7 @@ const CONFIG = {
 
     // Asset name that represents enemy characters.
     // Valid values: "slime"
-    asset: "cowboy",
+    asset: "superzombie",
 
     // Movement speed of each enemy in pixels per second.
     // Suggested: 90

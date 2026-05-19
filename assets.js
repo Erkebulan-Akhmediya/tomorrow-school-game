@@ -13,18 +13,55 @@
 const ASSET_REGISTRY = {
   backgrounds: {
     cowboy_road: "assets/backgrounds/cowboy_road.png",
+    meadow: "assets/backgrounds/meadow-clean.png"
   },
   characters: {
     cowboy: [
       "assets/characters/cowboy/1.png",
       "assets/characters/cowboy/2.png"
     ],
+    sam: [
+      "assets/characters/sam/sam-1.png",
+      "assets/characters/sam/sam-2.png",
+    ],
+    soldier: [
+      "assets/characters/elite/elite-1.png",
+      "assets/characters/elite/elite-2.png",
+    ]
   },
   enemies: {
     cowboy: [
       "assets/enemies/cowboy/1.png",
       "assets/enemies/cowboy/2.png"
     ],
+    alien: [
+      "assets/enemies/alien-1.png",
+      "assets/enemies/alien-2.png",
+    ],
+    bandit: [
+      "assets/enemies/bandit-1.png",
+      "assets/enemies/bandit-2.png",
+    ],
+    goblin: [
+      "assets/enemies/goblin-1.png",
+      "assets/enemies/goblin-2.png",
+    ],
+    superzombie: [
+      "assets/enemies/superzombie-1.png",
+      "assets/enemies/superzombie-2.png",
+    ],
+    tribe: [
+      "assets/enemies/tribe-1.png",
+      "assets/enemies/tribe-2.png",
+    ],
+    trooper: [
+      "assets/enemies/trooper-1.png",
+      "assets/enemies/trooper-2.png",
+    ],
+    zombie: [
+      "assets/enemies/zombie-1.png",
+      "assets/enemies/zombie-2.png",
+    ]
   },
 };
 
