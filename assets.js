@@ -12,8 +12,13 @@
 // ------------------------------------------------------------------
 const ASSET_REGISTRY = {
   backgrounds: {
-    cowboy_road: "assets/backgrounds/cowboy_road.png",
-    meadow: "assets/backgrounds/meadow-clean.png"
+    meadow: "assets/backgrounds/meadow.png",
+    beach: "assets/backgrounds/beach.png",
+    city: "assets/backgrounds/city.png",
+    desert: "assets/backgrounds/desert.png",
+    military: "assets/backgrounds/military.png",
+    moon: "assets/backgrounds/moon.png",
+    war: "assets/backgrounds/war.png"
   },
   characters: {
     cowboy: [
@@ -27,7 +32,27 @@ const ASSET_REGISTRY = {
     soldier: [
       "assets/characters/elite/elite-1.png",
       "assets/characters/elite/elite-2.png",
-    ]
+    ],
+    agent: [
+      "assets/characters/agent/agent-1.png",
+      "assets/characters/agent/agent-2.png",
+    ],
+    astro: [
+      "assets/characters/astro/astro-1.png",
+      "assets/characters/astro/astro-2.png",
+    ],
+    captain: [
+      "assets/characters/captain/captain-1.png",
+      "assets/characters/captain/captain-2.png",
+    ],
+    robin: [
+      "assets/characters/robin/robin-1.png",
+      "assets/characters/robin/robin-2.png",
+    ],
+    sheriff: [
+      "assets/characters/sheriff/sheriff-1.png",
+      "assets/characters/sheriff/sheriff-2.png",
+    ],
   },
   enemies: {
     cowboy: [
