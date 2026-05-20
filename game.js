@@ -89,15 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => {
         if (res.ok) {
           shareDialog.close();
-          alert("successfully shared the screenshot");
+          alert("Скриншот был успешно отправлен");
           if (paused) overlay.style.display = "flex";
         } else {
-          alert("Failed to share.");
+          alert("Не удалось отправить скриншот");
         }
       })
       .catch(err => {
         console.error("Error sharing:", err);
-        alert("Error sharing screenshot.");
+        alert("Не удалось отправить скриншот");
       });
   });
 
