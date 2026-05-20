@@ -1,112 +1,123 @@
-// =============================================================
-//  config.js — Game Configuration
-//  This is the ONLY file you are expected to edit.
-//  Change the values below to customise the game.
-// =============================================================
+//  config.js 
+//  Здесь Вы редактируете игру с помощью значений в КАВЫЧКАХ ""
+//  Удачных Вам экспериментов
 
 const CONFIG = {
 
   // ----------------------------------------------------------
-  // Title displayed at the top of the screen.
-  // Change this to whatever you like.
+  // Название Вашей игры на главном экране
+  // Разделено на 3 строчки, чтобы вы могли делать более длинные названия
+  // Надпись подстраивается под Ваш текст, но мы не советуем писать 10 слов в одну строку
   // ----------------------------------------------------------
   title1: "Здесь может",
   title2: "быть заголовок",
   title3: "вашей игры",
 
   // ----------------------------------------------------------
-  // Background scene.
-  // Valid values: meadow, beach, city, desert, military, moon, war
+  // ФОН ИГРЫ
+  // Мы сделали для Вас несколько вариантов фона игры
+  // Выберите одно из значений ниже и замените слово в кавычках
+  // meadow - зеленое поле
+  // beach - пляж
+  // city - разрушенный город
+  // desert - пустыня
+  // military - военная база
+  // war - поле битвы 
+  // moon - на луне
+  // Просим использовать только эти слова, или Вы останетесь без красивого фона
   // ----------------------------------------------------------
   background: "meadow",
 
-  // ==========================================================
-  //  PLAYER
-  // ==========================================================
   player: {
+  // Здесь вы настраиваете ПЕРСОНАЖА ИГРОКА
+  // Мы сделали для Вас несколько вариантов героя
+  // Выберите одно из значений ниже и замените слово в кавычках
+  // sam - стандартный вариант
+  // soldier - солдат
+  // agent - секретный агент
+  // astro - космонавт
+  // captain - капитан корабля
+  // robin - Робин Гуд, лучник
+  // sheriff - Шериф
+  // Просим использовать только эти слова, иначе все сломается )))
 
-    // Asset name that represents the player character.
-    // Valid values: sam, soldier, agent, astro, captain, robin, sheriff
     asset: "soldier",
 
-    // Movement speed in pixels per second.
-    // Higher = faster player. Suggested: 200
+    // Как быстро ходит Ваш герой, стандарт 200
+    // Но вы можете указать любое число больше 0
     speed: 200,
 
-    // How many shots the player fires per second when an enemy
-    // is within detectionRange.
-    // Suggested: 1.5
+    // Скорость стрельбы, стандарт 1.5, но больше = веселее
     shootFrequency: 1.5,
   },
 
-  // ==========================================================
-  //  ENEMY
-  // ==========================================================
   enemy: {
 
-    // Asset name that represents enemy characters.
-    // Valid values: alien, bandit, goblin, superzombie, tribe, trooper, zombie
-    asset: "superzombie",
+  // Здесь вы настраиваете ВРАГОВ
+  // Мы сделали для Вас несколько вариантов плохих парней
+  // Выберите одно из значений ниже и замените слово в кавычках
+  // alien - пришелец
+  // bandit - бандит Дикого Запада
+  // goblin - воин-гоблин
+  // superzombie - зомби-солдат
+  // tribe - дикарь-воин
+  // trooper - Робин Гуд, лучник
+  // zombie - Шериф
+  // Просим использовать только эти слова, иначе все сломается )))
 
-    // Movement speed of each enemy in pixels per second.
-    // Suggested: 90
+    asset: "goblin",
+
+    // Скорость врагов, начинаем с 90, но чем они быстрее, тем сложнее игра
     speed: 90,
 
-    // Number of enemies spawned in a single spawn event.
-    // Suggested: 2
+    // Сколько врагов появляется одновременно?
     spawnCount: 5,
 
-    // Time in seconds between each spawn event.
-    // Suggested: 3
-    spawnInterval: 5,
+    // Как часто появляются враги, в секундах
+    spawnInterval: 2,
   },
 
-  // ==========================================================
-  //  BULLET
-  // ==========================================================
   bullet: {
+    // Здесь Вы настраиваете ПУЛИ или СНАРЯДЫ
+    // Как быстро летят ваши пули?
+    speed: 500,
 
-    // Travel speed of every bullet in pixels per second.
-    // Suggested: 350
-    speed: 350,
+    // Цвет ваших пуль, подойдет почти любой цвет на английском
+    // Например: red, green, blue, yellow, purple, orange, pink, brown, gray
+    color: "gray",
 
-    // Fill colour of the bullet. Any valid CSS colour string.
-    // Examples: red, green, blue, yellow, purple, orange, pink, brown, gray
-    color: "yellow",
+    // Форма ваших пуль
+    // circle - круг
+    // square - квадрат
+    // triangle - треугольник
+    // star - звезда или сюрикен?
+    // И дальше Вы можете настроить размеры фигуры
+    shape: "circle",
 
-    // Shape used to draw the bullet.
-    // Valid values: "circle" | "square" | "triangle" | "star"
-    // The matching shape-options block below will be used.
-    shape: "triangle",
+    // Ниже вы можете настроить размеры пуль
+    // Менять можно все значения, но увидите только выбранную форму пули
 
-    // -- Shape options ------------------------------------------
-    // Only the block whose name matches `shape` above is used;
-    // the others are ignored.
-
-    // Circular bullet — defined by its radius in pixels.
+    // Круглая пуля - радиус, то есть размер
     circle: {
       radius: 6,
     },
 
-    // Square bullet — defined by its width and height in pixels.
+    // Квадратная пуля - сторона квадрата, тоже размер
     square: {
       side: 20
     },
 
-    // Equilateral triangle bullet — all sides equal, all angles 60°.
-    // Defined by a single side length in pixels.
+    // Треугольные пули - тоже длина стороны = размер
+
     triangle: {
-      side: 40,
+      side: 20,
     },
 
-    // Star-shaped bullet.
-    //   peaks       — number of points on the star (e.g. 5)
-    //   outerRadius — distance from centre to a point tip in pixels
-    //   innerRadius — distance from centre to an inner notch in pixels
+    // Пуля - звезда, немного более сложная
     star: {
-      peaks: 5,
-      outerRadius: 10,
-      innerRadius: 4,
+      peaks: 5, // количество лучей или вершин
+      outerRadius: 10, // общий размер
+      innerRadius: 4, // внутренний размер, чем он больше, тем длиннее лучи
     },
   },
 };
