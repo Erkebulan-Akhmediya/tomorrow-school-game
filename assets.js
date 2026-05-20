@@ -21,10 +21,6 @@ const ASSET_REGISTRY = {
     war: "assets/backgrounds/war.png"
   },
   characters: {
-    cowboy: [
-      "assets/characters/cowboy/1.png",
-      "assets/characters/cowboy/2.png"
-    ],
     sam: [
       "assets/characters/sam/sam-1.png",
       "assets/characters/sam/sam-2.png",
@@ -55,10 +51,6 @@ const ASSET_REGISTRY = {
     ],
   },
   enemies: {
-    cowboy: [
-      "assets/enemies/cowboy/1.png",
-      "assets/enemies/cowboy/2.png"
-    ],
     alien: [
       "assets/enemies/alien-1.png",
       "assets/enemies/alien-2.png",

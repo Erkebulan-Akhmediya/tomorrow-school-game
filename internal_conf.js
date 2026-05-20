@@ -28,7 +28,7 @@ const INTERNAL_CONFIG = {
   },
 
   // Endpoint to handle share screenshot requests
-  shareEndpoint: "http://127.0.0.1:8080/upload",
+  shareEndpoint: "http://10.10.40.104:8080/upload",
 
   // Fixed canvas dimensions to prevent background stretching.
   canvasWidth: 1000,
