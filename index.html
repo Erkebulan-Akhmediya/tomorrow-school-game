@@ -23,10 +23,18 @@
 
   <dialog id="shareDialog">
     <form id="shareForm">
-      <h3>Share Screenshot</h3>
-      <input type="text" id="telegramUsername" placeholder="Telegram Username" required />
-      <button type="submit" id="btnSendShare">Send</button>
-      <button type="button" id="btnCancelShare">Cancel</button>
+      <h3>Поделиться скриншотом</h3>
+      <img src="./assets/qr.png" width="300" />
+      <p>1. введите свое имя пользователя в telegram (без @ в начале)</p>
+      <p>2. нажмите "отправить"</p>
+      <p>3. отсканируйте QR код, чтобы перейти к телеграм боту</p>
+      <p>4. выберите комманду /photo из меню бота</p>
+      <p>5. Дождитесь скриншота вашей игры от бота</p>
+      <input type="text" id="telegramUsername" placeholder="Имя пользователя Telegram" required />
+      <div>
+        <button type="submit" id="btnSendShare">Отправить</button>
+      <button type="button" id="btnCancelShare">Отмена</button>
+      </div>
     </form>
   </dialog>
 
