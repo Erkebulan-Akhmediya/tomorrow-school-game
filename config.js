@@ -16,7 +16,7 @@ const CONFIG = {
 
   // ----------------------------------------------------------
   // Background scene.
-  // Valid values: "grass"
+  // Valid values: meadow, beach, city, desert, military, moon, war
   // ----------------------------------------------------------
   background: "meadow",
 
@@ -26,7 +26,7 @@ const CONFIG = {
   player: {
 
     // Asset name that represents the player character.
-    // Valid values: "knight"
+    // Valid values: sam, soldier, agent, astro, captain, robin, sheriff
     asset: "soldier",
 
     // Movement speed in pixels per second.
@@ -45,7 +45,7 @@ const CONFIG = {
   enemy: {
 
     // Asset name that represents enemy characters.
-    // Valid values: "slime"
+    // Valid values: alien, bandit, goblin, superzombie, tribe, trooper, zombie
     asset: "superzombie",
 
     // Movement speed of each enemy in pixels per second.
@@ -71,7 +71,7 @@ const CONFIG = {
     speed: 350,
 
     // Fill colour of the bullet. Any valid CSS colour string.
-    // Examples: "#ff4444"  |  "red"  |  "rgb(255,68,68)"
+    // Examples: red, green, blue, yellow, purple, orange, pink, brown, gray
     color: "yellow",
 
     // Shape used to draw the bullet.
